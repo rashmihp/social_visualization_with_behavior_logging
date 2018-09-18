@@ -1,0 +1,26 @@
+{
+  "name": "aw-project-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "watch": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Rashmi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.3.0",
+    "heroku": "^7.16.0",
+    "heroku-cli": "^7.0.9",
+    "mongodb": "^3.1.4",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}

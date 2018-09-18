@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  -data = data || {}
+
+  if errors
+    ul.my-errors
+      for error in errors
+        li= error.msg
+
+  form(action="/auth" method="POST" class="form-registration")
+    label(for="email") Email:
+    input(
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      value=data.email
+    )
+    label(for="password") Password:
+    input(
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      value=data.password
+    )
+    label(for="login")
+    input(
+      type="submit"
+      value="Login"
+      class="btn btn-lg btn-primary btn-block"
+    )

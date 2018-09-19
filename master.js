@@ -43,7 +43,7 @@ const registerp = (req, res) => {
     record.x = req.params.x
     record.y = req.params.y
 
-    db.collection('user-clicks').insertOne(record, (err, c) => console.log("saved coordinates to db")
+    db.collection('user-clicks').insertOne(record, (err, c) => console.log("saved coordinates to db"))
     let response = {}
     response.x = x
     response.y = y

@@ -12,7 +12,7 @@ router.get('/profile', master.profile)
 // temporary route /temp
 router.get('/temp/:x/:y', master.temp)
 
-router.get('/rashmi', middlewear1, middlewear2, finalfunction)
+/*router.get('/rashmi', middlewear1, middlewear2, finalfunction)
 
 function middlewear1(req, res, next) {
   req.rashmi = "something"
@@ -24,9 +24,6 @@ function middlewear2(req, res, next) {
 }
 function finalfunction(req, res) {
   res.send(req.rashmi)
-}
+}*/
 
-//router.get('/login', (req, res) => {
-  //res.render('loginform',{title: "LOGIN"});
-//});
 module.exports = router;

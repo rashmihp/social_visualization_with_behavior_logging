@@ -18,16 +18,9 @@ function getClickPosition(e) {
     var myObj = { x: xPosition, y: yPosition, date: d.getHours()+":"+d.getMinutes()+":"+d.getSeconds() };
     var myJSON = JSON.stringify(myObj);
     console.log(myObj);
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "http://localhost:3000/temp/123", true);
-  xhttp.send(); // 2min......ur site (localhost) is not running in https...thats y error. yreah thats what i was tellling
-  //https://stackoverflow.com/questions/11744975/enabling-https-on-express-js
-  //use this link to setup https then it will work... yeahh okk ill try
-
-
 
 }
-// for asking a question
+
 var classname = document.getElementsByClassName("d-inline-flex ai-center ws-nowrap s-btn s-btn__primary")
 classname[0].addEventListener("click", askQuestion);
 function askQuestion() {
@@ -47,7 +40,14 @@ classname[0].addEventListener("wheel", myFunction, false);
 
   $(document).ready(function() {
     console.log('jquery loaded');
-    $.get("http://localhost:3000/temp/data", function(res) {
-      console.log(res)
+    $('tagged-questions-page unified-theme new-topbar').click(function() {
+      var x = this.clientX
+      var y = this.clientY
+      let url = "https://project-aw.herokuapp.com/temp/" + x + "/" + y
+      $.get(url, function(res) {
+        console.log("Sent from server")
+        console.log("X: " + res.x + " Y: " + res.y);
+      })
     })
+
   })

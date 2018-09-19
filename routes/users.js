@@ -10,10 +10,7 @@ router.get('/', master.login)
 router.post('/auth', master.auth)
 router.get('/profile', master.profile)
 // temporary route /temp
-router.get('/temp', (req, res) => {
-  console.log(req.body) // parse req.body and put to databse as required...
-  res.send("worked")
-})
+router.get('/temp/:x/:y', master.temp)
 
 
 //router.get('/login', (req, res) => {

@@ -36,6 +36,19 @@ const registerp = (req, res) => {
     res.render('profile',{title: "PROFILE",username: "abc"});
   }
 
+  const temp = (req, res) => {
+    let db = client.getDb()
+
+    let x = res.params.x
+    let y = res.params.y
+
+    let response = {}
+    response.x = x
+    response.y = y
+
+    res.send(response)
+  }
+
 module.exports = {
   register:register,
   registerp:registerp,

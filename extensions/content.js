@@ -45,7 +45,7 @@ classname[0].addEventListener("wheel", myFunction, false);
       let y = e.pageY
       console.log('here');
       console.log(x,y)
-      let url = "https://project-aw.herokuapp.com/click/" + x + "/" + y
+      let url = "https://project-aw.herokuapp.com/temp/" + x + "/" + y
       $.ajax({
         type: "GET",
         url: url,

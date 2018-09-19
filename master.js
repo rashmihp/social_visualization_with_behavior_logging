@@ -34,7 +34,7 @@ const registerp = (req, res) => {
     })
   }
   const profile = (req, res) => {
-    var db = client.getDB()
+    var db = client.getDb()
 
     res.render('profile',{title: "PROFILE",username: "abc"});
   }

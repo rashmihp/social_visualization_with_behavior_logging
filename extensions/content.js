@@ -85,9 +85,9 @@ classname[0].addEventListener("wheel", myFunction, false);
         }
       })
     })
-      $(window).keypress(function(e) {
+      $(window).keydown(function(e) {
       var d = new Date()
-      if ((event.which == 100 && event.ctrlKey) ){
+      if ((event.ctrlKey && event.which == 100) ){
       let x = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()}
       console.log(x)
       let url = "https://project-aw.herokuapp.com/bookmark/" + x

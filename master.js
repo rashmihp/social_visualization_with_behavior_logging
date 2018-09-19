@@ -28,12 +28,14 @@ const registerp = (req, res) => {
     if(err) throw err
     else {
       console.log(items)
-      sess.id = items._id
+      sess.id = items.username
       if(sess.id){console.log(sess.id)} else console.log('not found')
       res.redirect('/profile')}
     })
   }
   const profile = (req, res) => {
+    var db = client.getDB()
+
     res.render('profile',{title: "PROFILE",username: "abc"});
   }
 

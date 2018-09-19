@@ -22,6 +22,7 @@ const registerp = (req, res) => {
 
   const auth = (req, res) => {
     var db = client.getDb()
+    var sess = req.session
     console.log(req.session)
     db.collection('users').find({email:req.body.email}).toArray(function(err, items){
     if(err) throw err

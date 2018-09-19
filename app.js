@@ -19,10 +19,10 @@ app.post('/', function(req, res, next) {
  console.log("abc")
 });
 
+app.use(session({secret: 'ssshhhhh'}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/',routes)
 app.use(express.static('css')); //load files from public directory using express.
-app.use(session({secret: 'ssshhhhh'}));
 
 app.listen(process.env.PORT, () => {
   //console.log(`App is running on: ${port}`)

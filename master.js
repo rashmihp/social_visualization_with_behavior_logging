@@ -1,6 +1,6 @@
 var client = require('./db')
 const session = require('express-session');
-  var sess
+  //var sess
   const register = (req, res) => {
   res.render('register',{title: "Registration form"});
 }
@@ -22,21 +22,31 @@ const registerp = (req, res) => {
 
   const auth = (req, res) => {
     var db = client.getDb()
-    sess = req.session
+    //sess = req.session
     console.log(req.session)
     db.collection('users').find({email:req.body.email}).toArray(function(err, items){
     if(err) throw err
     else {
       console.log(items)
-      sess.username = items[0].username
-      if(sess.id){console.log(sess)} else console.log('not found')
+      req.session.username = items[0].username
+      if(req.session.username){console.log(req.session)} else console.log('not found')
       res.redirect('/profile')}
     })
   }
-  const profile = (req, res) => {
-    var db = client.getDb()
+  const restrict = (req, res, next) => {
+    if(req.session.username){
+      next();
+      }
+      else {
+        console.log("access denied")
+        res.redirect('/')
 
-    res.render('profile',{title: "PROFILE",username: sess.username});
+      }
+  }
+  const profile = (req, res) => {
+    //var db = client.getDb()
+
+    res.render('profile',{title: "PROFILE",username: req.session.username});
   }
 
   const temp = (req, res) => {
@@ -64,7 +74,7 @@ const registerp = (req, res) => {
     let db = client.getDb()
 
     let record = {}
-    record.username = sess.username
+    record.username = req.session.username
     record.x_scroll = req.params.x
     record.y_scroll = req.params.y
     record.time_scroll = req.params.x
@@ -76,7 +86,7 @@ const registerp = (req, res) => {
     let db = client.getDb()
 
     let record = {}
-    record.username = sess.username
+    record.username = req.session.username
     record.x_bookmark = req.params.x
     db.collection('user-clicks').insertOne(record, (err, c) => console.log("saved bookmark to db"))
 
@@ -88,6 +98,7 @@ module.exports = {
   registerp:registerp,
   login:login,
   auth:auth,
+  restrict:restrict,
   profile:profile,
   temp:temp,
   ask_question:ask_question,

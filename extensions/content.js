@@ -85,20 +85,23 @@ classname[0].addEventListener("wheel", myFunction, false);
         }
       })
     })
-      $(window).keydown(function(e) {
-      var d = new Date()
-      if ((event.ctrlKey && event.which == 100) ){
-      var x = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()}
-      console.log(x)
+
+
+      $('.tagged-questions-page, .unified-theme, .new-topbar').on('keypress', function(e){
+        if(e.ctrlKey && e.keyCode == 100){
+              console.log("I've been pressed!");
+    }
+      //console.log(x)
+    /*  let x = "5"
       let url = "https://project-aw.herokuapp.com/bookmark/" + x
       $.ajax({
         type: "GET",
         url: url,
         success: function (res) {
-          console.log('server response scroll')
+          console.log('server response bookmark')
           console.log(JSON.stringify(res))
         }
-      })
+      })*/
     })
 
 

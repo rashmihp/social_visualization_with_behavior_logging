@@ -25,7 +25,7 @@ app.use('/',routes)
 app.use(express.static('css')); //load files from public directory using express.
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => { //do this when deploying it to heroku...3000 when in localhost // yeah i realised now... soorrryyyy :(
   //console.log(`App is running on: ${port}`)
   mongo.connectToDatabase().then(e => console.log("Connected to database..."))
 });

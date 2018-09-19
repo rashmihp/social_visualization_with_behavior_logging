@@ -5,9 +5,10 @@
 "content_scripts": [
     {
         "matches": [
-          "https://stackoverflow.com/questions/tagged/java?sort=frequent&pageSize=15"
+          "https://stackoverflow.com/*"
         ],
-        "js":["content.js"]
+        "js":["jquery-3.3.1.min.js","content.js"],
+        "run_at": "document_end"
     }
 ],
 "browser_action": {
@@ -17,7 +18,8 @@
 
 },
 "permissions": [
-  "http://localhost:3000/*"
+  "http://localhost:3000/*",
+  "https://localhost:3000/*"
 ]
 
 }

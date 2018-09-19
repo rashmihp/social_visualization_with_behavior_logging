@@ -50,12 +50,22 @@ const registerp = (req, res) => {
 
     res.send(record)
   }
+  const ask_question = (req, res) => {
+    let db = client.getDb()
 
+    let question = {}
+    question.qtime = req.params.x
+
+    db.collection('user-clicks').insertOne(question, (err, c) => console.log("saved coordinates to db"))
+
+    res.send(record)
+  }
 module.exports = {
   register:register,
   registerp:registerp,
   login:login,
   auth:auth,
   profile:profile,
-  temp:temp
+  temp:temp,
+  ask_question:ask_question
 }

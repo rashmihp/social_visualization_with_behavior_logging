@@ -55,10 +55,11 @@ classname[0].addEventListener("wheel", myFunction, false);
         }
       })
     })
-    /*$('.d-inline-flex .ai-center .ws-nowrap .s-btn .s-btn__primary').click(function(e){
+    $('.d-inline-flex .ai-center .ws-nowrap .s-btn .s-btn__primary').click(function(e){
       var d = new Date()
       let x = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
-      let url = "https://project-aw.herokuapp.com/ask/" + x
+      console.log(x)
+      let url = "https://project-aw.herokuapp.com/ask_question/" + x
       $.ajax({
         type: "GET",
         url: url,
@@ -67,6 +68,6 @@ classname[0].addEventListener("wheel", myFunction, false);
           console.log(JSON.stringify(res))
         }
       })
-    })*/
+    })
 
   })

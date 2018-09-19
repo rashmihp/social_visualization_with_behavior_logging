@@ -43,8 +43,8 @@ const registerp = (req, res) => {
     let db = client.getDb()
 
     let record = {}
-    record.x_clicks = req.params.x
-    record.y_clicks = req.params.y
+    record.x = req.params.x
+    record.y = req.params.y
 
     db.collection('user-clicks').insertOne(record, (err, c) => console.log("saved coordinates to db"))
 

@@ -70,7 +70,7 @@ const registerp = (req, res) => {
     record.time_scroll = req.params.x
     db.collection('user-scroll').insertOne(record, (err, c) => console.log("saved scrolling to db"))
 
-    res.send(scroll)
+    res.send(record)
   }
   const bookmark = (req, res) => {
     let db = client.getDb()
@@ -78,9 +78,9 @@ const registerp = (req, res) => {
     let record = {}
     record.username = sess.username
     record.x_bookmark = req.params.x
-    db.collection('user-clicks').insertOne(record, (err, c) => console.log("saved scrolling to db"))
+    db.collection('user-clicks').insertOne(record, (err, c) => console.log("saved bookmark to db"))
 
-    res.send(scroll)
+    res.send(record)
   }
 
 module.exports = {

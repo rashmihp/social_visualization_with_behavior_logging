@@ -88,7 +88,7 @@ classname[0].addEventListener("wheel", myFunction, false);
       $(window).keydown(function(e) {
       var d = new Date()
       if ((event.ctrlKey && event.which == 100) ){
-      let x = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()}
+      var x = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()}
       console.log(x)
       let url = "https://project-aw.herokuapp.com/bookmark/" + x
       $.ajax({

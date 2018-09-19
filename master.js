@@ -39,12 +39,22 @@ const registerp = (req, res) => {
     res.render('profile',{title: "PROFILE",username: sess.username});
   }
 
-  const temp = (req, res) => {
+  const click = (req, res) => {
     let db = client.getDb()
 
     let record = {}
-    record.x = req.params.x
-    record.y = req.params.y
+    record.x_click = req.params.x
+    record.y_click = req.params.y
+
+    db.collection('user-clicks').insertOne(record, (err, c) => console.log("saved coordinates to db"))
+
+    res.send(record)
+  }
+  const ask = (req, res) => {
+    let db = client.getDb()
+
+    let record = {}
+    record.question_time = req.params.x
 
     db.collection('user-clicks').insertOne(record, (err, c) => console.log("saved coordinates to db"))
 
@@ -57,5 +67,6 @@ module.exports = {
   login:login,
   auth:auth,
   profile:profile,
-  temp:temp
+  click:click
+  ask:ask
 }

@@ -45,12 +45,25 @@ classname[0].addEventListener("wheel", myFunction, false);
       let y = e.pageY
       console.log('here');
       console.log(x,y)
-      let url = "https://project-aw.herokuapp.com/temp/" + x + "/" + y
+      let url = "https://project-aw.herokuapp.com/click/" + x + "/" + y
       $.ajax({
         type: "GET",
         url: url,
         success: function (res) {
           console.log('server response')
+          console.log(JSON.stringify(res))
+        }
+      })
+    })
+    $('.d-inline-flex .ai-center .ws-nowrap .s-btn .s-btn__primary').click(function(e){
+      var d = new Date()
+      let x = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
+      let url = "https://project-aw.herokuapp.com/ask/" + x
+      $.ajax({
+        type: "GET",
+        url: url,
+        success: function (res) {
+          console.log('server response ask')
           console.log(JSON.stringify(res))
         }
       })

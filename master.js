@@ -27,8 +27,8 @@ const registerp = (req, res) => {
     if(err) throw err
     else {
       console.log(items)
-      //sess.id = items._id // this is the error ..now try
-      //if(sess.id){console.log(sess.id)} else console.log('not found')
+      sess.id = items._id
+      if(sess.id){console.log(sess.id)} else console.log('not found')
       res.redirect('/profile')}
     })
   }
@@ -40,8 +40,9 @@ const registerp = (req, res) => {
     let db = client.getDb()
 
     let record = {}
-    record.x = req.params.x
-    record.y = req.params.y
+    record.x_clicks = req.params.x
+    record.y_clicks = req.params.y
+    record.
 
     db.collection('user-clicks').insertOne(record, (err, c) => console.log("saved coordinates to db"))
 

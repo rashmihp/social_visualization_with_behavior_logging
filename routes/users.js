@@ -11,7 +11,7 @@ router.post('/auth', master.auth)
 router.get('/profile', master.profile)
 // temporary route /temp
 router.get('/click/:x/:y', master.temp)
-router.get('/ask_question/:x/:y', master.ask_question)
+router.get('/ask_question/:x', master.ask_question)
 
 /*router.get('/rashmi', middlewear1, middlewear2, finalfunction)
 

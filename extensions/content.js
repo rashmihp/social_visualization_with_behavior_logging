@@ -55,7 +55,7 @@ classname[0].addEventListener("wheel", myFunction, false);
         }
       })
     })
-    $('.d-inline-flex .ai-center .ws-nowrap .s-btn .s-btn__primary').click(function(e){
+    $('.d-inline-flex, .ai-center, .ws-nowrap, .s-btn, .s-btn__primary').click(function(e){
       var d = new Date()
       let x = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
       console.log(x)

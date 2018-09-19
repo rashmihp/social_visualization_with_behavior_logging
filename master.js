@@ -80,6 +80,6 @@ module.exports = {
   auth:auth,
   profile:profile,
   temp:temp,
-  ask_question:ask_question
+  ask_question:ask_question,
   scroll:scroll
 }

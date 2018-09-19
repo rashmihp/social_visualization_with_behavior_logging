@@ -54,5 +54,6 @@ module.exports = {
   registerp:registerp,
   login:login,
   auth:auth,
-  profile:profile
+  profile:profile,
+  temp:temp
 }

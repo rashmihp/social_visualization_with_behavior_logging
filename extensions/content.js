@@ -14,10 +14,10 @@ function getClickPosition(e) {
     var xPosition = e.clientX;
     var yPosition = e.clientY;
 
-    console.log("x =" +xPosition + ", y= "+ yPosition + d.getHours()+":"+d.getMinutes()+":"+d.getSeconds())
+    // console.log("x =" +xPosition + ", y= "+ yPosition + d.getHours()+":"+d.getMinutes()+":"+d.getSeconds())
     var myObj = { x: xPosition, y: yPosition, date: d.getHours()+":"+d.getMinutes()+":"+d.getSeconds() };
     var myJSON = JSON.stringify(myObj);
-    console.log(myObj);
+    //console.log(myObj);
 
 }
 
@@ -40,13 +40,19 @@ classname[0].addEventListener("wheel", myFunction, false);
 
   $(document).ready(function() {
     console.log('jquery loaded');
-    $('tagged-questions-page unified-theme new-topbar').click(function() {
-      var x = this.clientX
-      var y = this.clientY
+    $('.tagged-questions-page, .unified-theme, .new-topbar').click(function() {
+      let x = this.clientX
+      let y = this.clientY
+      console.log('here');
       let url = "https://project-aw.herokuapp.com/temp/" + x + "/" + y
-      $.get(url, function(res) {
-        console.log("Sent from server")
-        console.log("X: " + res.x + " Y: " + res.y);
+      $.ajax({
+        type: "GET",
+        url: url,
+        dataType: "jsonp",
+        crossDomain: true,
+        success: function (res) {
+          console.log(JSON.stringify(res))
+        }
       })
     })
 

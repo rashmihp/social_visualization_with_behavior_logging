@@ -1,7 +1,7 @@
 var client = require('./db')
 const session = require('express-session');
-
-const register = (req, res) => {
+  var sess
+  const register = (req, res) => {
   res.render('register',{title: "Registration form"});
 }
 
@@ -22,13 +22,13 @@ const registerp = (req, res) => {
 
   const auth = (req, res) => {
     var db = client.getDb()
-    var sess = req.session
+    sess = req.session
     console.log(req.session)
     db.collection('users').find({email:req.body.email}).toArray(function(err, items){
     if(err) throw err
     else {
       console.log(items)
-      sess.id = items.username
+      sess.username = items[0].username
       if(sess.id){console.log(sess)} else console.log('not found')
       res.redirect('/profile')}
     })
@@ -36,7 +36,7 @@ const registerp = (req, res) => {
   const profile = (req, res) => {
     var db = client.getDb()
 
-    res.render('profile',{title: "PROFILE",username: "abc"});
+    res.render('profile',{title: "PROFILE",username: sess.username});
   }
 
   const temp = (req, res) => {

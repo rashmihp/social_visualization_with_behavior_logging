@@ -24,7 +24,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/',routes)
 app.use(express.static('css')); //load files from public directory using express.
 
-app.listen(process.env.PORT, () => {
+
+app.listen(3000, () => {
   //console.log(`App is running on: ${port}`)
   mongo.connectToDatabase().then(e => console.log("Connected to database..."))
 });

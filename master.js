@@ -39,14 +39,16 @@ const registerp = (req, res) => {
   const temp = (req, res) => {
     let db = client.getDb()
 
-    let x = req.params.x
-    let y = req.params.y
+    let record = {}
+    record.x = req.params.x
+    record.y = req.params.y
 
+    db.collection('user-clicks').insertOne(record, (err, c) => console.log("saved coordinates to db")
     let response = {}
     response.x = x
     response.y = y
 
-    res.send(response)
+    res.send(record)
   }
 
 module.exports = {

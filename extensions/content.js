@@ -50,6 +50,7 @@ classname[0].addEventListener("wheel", myFunction, false);
         type: "GET",
         url: url,
         success: function (res) {
+          console.log('server response below..')
           console.log(JSON.stringify(res))
         }
       })

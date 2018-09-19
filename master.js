@@ -29,7 +29,7 @@ const registerp = (req, res) => {
     else {
       console.log(items)
       sess.id = items.username
-      if(sess.id){console.log(sess.id)} else console.log('not found')
+      if(sess.id){console.log(sess)} else console.log('not found')
       res.redirect('/profile')}
     })
   }

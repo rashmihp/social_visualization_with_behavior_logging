@@ -69,5 +69,21 @@ classname[0].addEventListener("wheel", myFunction, false);
         }
       })
     })
+    $('.tagged-questions-page, .unified-theme, .new-topbar').scroll(function(e){
+      var d = new Date()
+      let x = e.pageX
+      let y = e.pageY
+      let z = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
+      console.log(x)
+      let url = "https://project-aw.herokuapp.com/scroll/" + x + "/" + y + "/" + z
+      $.ajax({
+        type: "GET",
+        url: url,
+        success: function (res) {
+          console.log('server response ask')
+          console.log(JSON.stringify(res))
+        }
+      })
+    })
 
   })

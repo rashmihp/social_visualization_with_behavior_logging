@@ -56,10 +56,23 @@ const registerp = (req, res) => {
     let question = {}
     question.qtime = req.params.x
 
-    db.collection('user-clicks').insertOne(question, (err, c) => console.log("saved coordinates to db"))
+    db.collection('user-clicks').insertOne(question, (err, c) => console.log("saved qtime to db"))
 
     res.send(question)
   }
+  const scroll = (req, res) => {
+    let db = client.getDb()
+
+    let scroll = {}
+    scroll.username = sess.username
+    scroll.x_scroll = req.params.x
+    scroll.y_scroll = req.params.y
+    scroll.time_scroll = req.params.x
+    db.collection('user-scroll').insertOne(scroll, (err, c) => console.log("saved scrolling to db"))
+
+    res.send(scroll)
+  }
+
 module.exports = {
   register:register,
   registerp:registerp,
@@ -68,4 +81,5 @@ module.exports = {
   profile:profile,
   temp:temp,
   ask_question:ask_question
+  scroll:scroll
 }

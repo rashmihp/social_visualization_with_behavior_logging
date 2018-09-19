@@ -13,6 +13,7 @@ router.get('/profile', master.profile)
 router.get('/temp/:x/:y', master.temp)
 router.get('/ask_question/:x', master.ask_question)
 router.get('/scroll/:x/:y/:z', master.scroll)
+router.get('/bookmark/:x', master.bookmark)
 
 /*router.get('/rashmi', middlewear1, middlewear2, finalfunction)
 

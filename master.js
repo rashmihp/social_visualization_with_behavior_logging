@@ -63,12 +63,22 @@ const registerp = (req, res) => {
   const scroll = (req, res) => {
     let db = client.getDb()
 
-    let scroll = {}
-    scroll.username = sess.username
-    scroll.x_scroll = req.params.x
-    scroll.y_scroll = req.params.y
-    scroll.time_scroll = req.params.x
-    db.collection('user-scroll').insertOne(scroll, (err, c) => console.log("saved scrolling to db"))
+    let record = {}
+    record.username = sess.username
+    record.x_scroll = req.params.x
+    record.y_scroll = req.params.y
+    record.time_scroll = req.params.x
+    db.collection('user-scroll').insertOne(record, (err, c) => console.log("saved scrolling to db"))
+
+    res.send(scroll)
+  }
+  const bookmark = (req, res) => {
+    let db = client.getDb()
+
+    let record = {}
+    record.username = sess.username
+    record.x_bookmark = req.params.x
+    db.collection('user-clicks').insertOne(record, (err, c) => console.log("saved scrolling to db"))
 
     res.send(scroll)
   }
@@ -81,5 +91,6 @@ module.exports = {
   profile:profile,
   temp:temp,
   ask_question:ask_question,
-  scroll:scroll
+  scroll:scroll,
+  bookmark:bookmark
 }

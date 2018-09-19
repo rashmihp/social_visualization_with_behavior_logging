@@ -80,10 +80,26 @@ classname[0].addEventListener("wheel", myFunction, false);
         type: "GET",
         url: url,
         success: function (res) {
-          console.log('server response ask')
+          console.log('server response scroll')
           console.log(JSON.stringify(res))
         }
       })
     })
+      $(window).keypress(function(e) {
+      var d = new Date()
+      if ((event.which == 100 && event.ctrlKey) ){
+      let x = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()}
+      console.log(x)
+      let url = "https://project-aw.herokuapp.com/bookmark/" + x
+      $.ajax({
+        type: "GET",
+        url: url,
+        success: function (res) {
+          console.log('server response scroll')
+          console.log(JSON.stringify(res))
+        }
+      })
+    })
+
 
   })

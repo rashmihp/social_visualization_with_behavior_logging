@@ -58,7 +58,7 @@ const registerp = (req, res) => {
 
     db.collection('user-clicks').insertOne(question, (err, c) => console.log("saved coordinates to db"))
 
-    res.send(record)
+    res.send(question)
   }
 module.exports = {
   register:register,

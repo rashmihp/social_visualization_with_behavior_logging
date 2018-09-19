@@ -67,6 +67,6 @@ module.exports = {
   login:login,
   auth:auth,
   profile:profile,
-  click:click
+  click:click,
   ask:ask
 }

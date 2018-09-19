@@ -40,16 +40,15 @@ classname[0].addEventListener("wheel", myFunction, false);
 
   $(document).ready(function() {
     console.log('jquery loaded');
-    $('.tagged-questions-page, .unified-theme, .new-topbar').click(function() {
-      let x = this.clientX
-      let y = this.clientY
+    $('.tagged-questions-page, .unified-theme, .new-topbar').click(function(e) {
+      let x = e.pageX
+      let y = e.pageY
       console.log('here');
+      console.log(x,y)
       let url = "https://project-aw.herokuapp.com/temp/" + x + "/" + y
       $.ajax({
         type: "GET",
         url: url,
-        dataType: "jsonp",
-        crossDomain: true,
         success: function (res) {
           console.log(JSON.stringify(res))
         }

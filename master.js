@@ -39,8 +39,8 @@ const registerp = (req, res) => {
   const temp = (req, res) => {
     let db = client.getDb()
 
-    let x = res.params.x
-    let y = res.params.y
+    let x = req.params.x
+    let y = req.params.y
 
     let response = {}
     response.x = x

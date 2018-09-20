@@ -98,7 +98,8 @@ const registerp = (req, res) => {
   } else {
     res.redirect('/');
   }
-  }
+})
+}
 
 
 module.exports = {

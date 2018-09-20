@@ -96,5 +96,5 @@ module.exports = {
   profile:profile,
   temp:temp,
   ask_question:ask_question,
-  scroll:scroll,
+  scroll:scroll
 }

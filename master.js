@@ -1,6 +1,6 @@
 var client = require('./db')
 const session = require('express-session');
-  //var sess
+  var sess
   const register = (req, res) => {
   res.render('register',{title: "Registration form"});
 }
@@ -29,6 +29,7 @@ const registerp = (req, res) => {
     else {
       console.log(items)
       req.session.username = items[0].username
+      sess.username = req.session.username
       if(req.session.username){console.log(req.session)} else console.log('not found')
       res.redirect('/profile')}
     })
@@ -53,7 +54,7 @@ const registerp = (req, res) => {
     let db = client.getDb()
 
     let record = {}
-    record.username = req.session.username
+    record.username = sess.username
     record.x_clicks = req.params.x
     record.y_clicks = req.params.y
 
@@ -65,7 +66,7 @@ const registerp = (req, res) => {
     let db = client.getDb()
 
     let question = {}
-    question.username = req.session.username
+    question.username = sess.username
     question.qtime = req.params.x
 
     db.collection('user-clicks').insertOne(question, (err, c) => console.log("saved qtime to db"))
@@ -76,7 +77,7 @@ const registerp = (req, res) => {
     let db = client.getDb()
 
     let record = {}
-    record.username = req.session.username
+    record.username = sess.username
     record.x_scroll = req.params.x
     record.y_scroll = req.params.y
     record.time_scroll = req.params.z // y same in both these lines? by mistake
@@ -84,16 +85,7 @@ const registerp = (req, res) => {
 
     res.send(record)
   }
-  const bookmark = (req, res) => {
-    let db = client.getDb()
 
-    let record = {}
-    record.username = req.session.username
-    record.x_bookmark = req.params.x
-    db.collection('user-clicks').insertOne(record, (err, c) => console.log("saved bookmark to db"))
-
-    res.send(record)
-  }
 
 module.exports = {
   register:register,
@@ -105,5 +97,4 @@ module.exports = {
   temp:temp,
   ask_question:ask_question,
   scroll:scroll,
-  bookmark:bookmark
 }

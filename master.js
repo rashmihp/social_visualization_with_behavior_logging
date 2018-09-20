@@ -53,6 +53,7 @@ const registerp = (req, res) => {
     let db = client.getDb()
 
     let record = {}
+    record.username = req.session.username
     record.x_clicks = req.params.x
     record.y_clicks = req.params.y
 
@@ -64,6 +65,7 @@ const registerp = (req, res) => {
     let db = client.getDb()
 
     let question = {}
+    question.username = req.session.username
     question.qtime = req.params.x
 
     db.collection('user-clicks').insertOne(question, (err, c) => console.log("saved qtime to db"))

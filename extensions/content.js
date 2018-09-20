@@ -34,11 +34,13 @@ classname[0].addEventListener("wheel", myFunction, false);
       var d = new Date()
       var xPosition = e.clientX;
       var yPosition = e.clientY;
-      console.log("scrolling " + " x = " + xPosition + " y = " + yPosition + "time:" + d.getHours()+":"+d.getMinutes()+":"+d.getSeconds())
-  }
+      //console.log("scrolling " + " x = " + xPosition + " y = " + yPosition + "time:" + d.getHours()+":"+d.getMinutes()+":"+d.getSeconds())
+  } // its from here..okok...comment it offf..
 
 
   $(document).ready(function() {
+
+    // this is the begining of jqyery code..
     console.log('jquery loaded');
     $('.tagged-questions-page, .unified-theme, .new-topbar').click(function(e) {
       let x = e.pageX
@@ -56,10 +58,10 @@ classname[0].addEventListener("wheel", myFunction, false);
       })
     })
     $('.d-inline-flex, .ai-center, .ws-nowrap, .s-btn, .s-btn__primary').click(function(e){
-      var d = new Date()
+      var x,d = new Date()
       let x = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
       console.log(x)
-      let url = "https://project-aw.herokuapp.com/ask_question/" + x
+      let url = "https://project-aw.herokuapp.com/ask_question/" + x //
       $.ajax({
         type: "GET",
         url: url,
@@ -69,12 +71,12 @@ classname[0].addEventListener("wheel", myFunction, false);
         }
       })
     })
-    $('.tagged-questions-page, .unified-theme, .new-topbar').scroll(function(e){
+    $(document).scroll(function(e){
       var d = new Date()
-      let x = e.pageX
-      let y = e.pageY
+      let x = $(document).scrollTop()
+      let y = $(document).scrollLeft()
       let z = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
-      console.log(x)
+      console.log('scroll fired' + x) //try now...shrink the window size..height of what? browser
       let url = "https://project-aw.herokuapp.com/scroll/" + x + "/" + y + "/" + z
       $.ajax({
         type: "GET",
@@ -84,16 +86,12 @@ classname[0].addEventListener("wheel", myFunction, false);
           console.log(JSON.stringify(res))
         }
       })
-    })
+    }) // wrap this whole thing in a function n call it maybe something like detect scroll...
+      // include underscore.js library just like how u included jquery, and add the two lines given on that page to the begining of jquery code...
 
-
-      $('.tagged-questions-page, .unified-theme, .new-topbar').on('keypress', function(e){
-        if(e.ctrlKey && e.keyCode == 100){
-              console.log("I've been pressed!");
-    }
-      //console.log(x)
-    /*  let x = "5"
-      let url = "https://project-aw.herokuapp.com/bookmark/" + x
+    /*  $(document).keypress('d', function(e){
+        console.log(e.keyCode + e.ctrlKey) // okkk one more thing..
+        let url = "https://project-aw.herokuapp.com/bookmark/"
       $.ajax({
         type: "GET",
         url: url,
@@ -101,8 +99,8 @@ classname[0].addEventListener("wheel", myFunction, false);
           console.log('server response bookmark')
           console.log(JSON.stringify(res))
         }
-      })*/
-    })
+      })
+    })*/
 
 
   })

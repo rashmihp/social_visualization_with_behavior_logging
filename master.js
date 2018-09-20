@@ -23,9 +23,9 @@ const registerp = (req, res) => {
   const auth = (req, res) => {
     var db = client.getDb()
     //sess = req.session
-    console.log(req.session)
+    console.log(req.session) //here ur not checking if the entered password is same as what is in the database...ur just checking email
     db.collection('users').find({email:req.body.email}).toArray(function(err, items){
-    if(err) throw err
+    if(err) throw err // instead of scroll
     else {
       console.log(items)
       req.session.username = items[0].username
@@ -68,7 +68,7 @@ const registerp = (req, res) => {
 
     db.collection('user-clicks').insertOne(question, (err, c) => console.log("saved qtime to db"))
 
-    res.send(question)
+    res.send(question) //dont have to send everytime...i had used send just to show that server is working // just a confirmation if that function is working and waht it is sending..okok...
   }
   const scroll = (req, res) => {
     let db = client.getDb()
@@ -77,7 +77,7 @@ const registerp = (req, res) => {
     record.username = req.session.username
     record.x_scroll = req.params.x
     record.y_scroll = req.params.y
-    record.time_scroll = req.params.x
+    record.time_scroll = req.params.z // y same in both these lines? by mistake
     db.collection('user-scroll').insertOne(record, (err, c) => console.log("saved scrolling to db"))
 
     res.send(record)

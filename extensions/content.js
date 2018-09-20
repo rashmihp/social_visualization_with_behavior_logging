@@ -89,18 +89,6 @@ classname[0].addEventListener("wheel", myFunction, false);
     }) // wrap this whole thing in a function n call it maybe something like detect scroll...
       // include underscore.js library just like how u included jquery, and add the two lines given on that page to the begining of jquery code...
 
-      $(document).keypress('d', function(e){
-        console.log(e.keyCode + e.ctrlKey) // okkk one more thing..
-        let url = "https://project-aw.herokuapp.com/bookmark/"
-      $.ajax({
-        type: "GET",
-        url: url,
-        success: function (res) {
-          console.log('server response bookmark')
-          console.log(JSON.stringify(res))
-        }
-      })
-    })
 
 
   })

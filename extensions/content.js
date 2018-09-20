@@ -6,37 +6,6 @@ let paragraphs = document.getElementsByClassName('d-inline-flex ai-center ws-now
 for(elt of paragraphs){
   elt.style['background-color'] = '#FF00F0'
 }
-//for random clicks on the screen
-var classname = document.getElementsByClassName("tagged-questions-page unified-theme new-topbar")
-classname[0].addEventListener("click", getClickPosition, false);
-function getClickPosition(e) {
-    var d = new Date()
-    var xPosition = e.clientX;
-    var yPosition = e.clientY;
-
-    // console.log("x =" +xPosition + ", y= "+ yPosition + d.getHours()+":"+d.getMinutes()+":"+d.getSeconds())
-    var myObj = { x: xPosition, y: yPosition, date: d.getHours()+":"+d.getMinutes()+":"+d.getSeconds() };
-    var myJSON = JSON.stringify(myObj);
-    //console.log(myObj);
-
-}
-
-var classname = document.getElementsByClassName("d-inline-flex ai-center ws-nowrap s-btn s-btn__primary")
-classname[0].addEventListener("click", askQuestion);
-function askQuestion() {
-    var d = new Date()
-    console.log("Question asked" + d.getHours()+":"+d.getMinutes()+":"+d.getSeconds())
-  }
-var classname = document.getElementsByClassName("tagged-questions-page unified-theme new-topbar")
-classname[0].addEventListener("wheel", myFunction, false);
-
-  function myFunction(e) {
-      var d = new Date()
-      var xPosition = e.clientX;
-      var yPosition = e.clientY;
-      //console.log("scrolling " + " x = " + xPosition + " y = " + yPosition + "time:" + d.getHours()+":"+d.getMinutes()+":"+d.getSeconds())
-  } // its from here..okok...comment it offf..
-
 
   $(document).ready(function() {
 
@@ -71,7 +40,7 @@ classname[0].addEventListener("wheel", myFunction, false);
         }
       })
     })
-    $('.js-add-link, .comments-link, .disabled-link ').click(function(e){
+    $('.js-add-link, .comments-link, .disabled-link').click(function(e){
       var d = new Date()
       let x = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
       console.log(x)
@@ -80,7 +49,7 @@ classname[0].addEventListener("wheel", myFunction, false);
         type: "GET",
         url: url,
         success: function (res) {
-          console.log('server response ask')
+          console.log('server response comment')
           console.log(JSON.stringify(res))
         }
       })

@@ -1,18 +1,16 @@
 extends layout
 
 block content
-  -data = data || {}
+  center
+    h2 Hi #{username}
+    br
+
+    h4 Connect to 
+      a(href="https://stackoverflow.com/questions/tagged/java?sort=frequent&pageSize=15") stackoverflow
+    h3
+      a("href = https://project-aw.herokuapp.com/logout") logout
 
   if errors
     ul.my-errors
       for error in errors
         li= error.msg
-
-  form(action="/profile" method="GET" class="form-registration")
-
-    <p>
-    label Username:
-    username= `${username}`
-    </p>
-    p </nbsp>Connect to <a href = https://stackoverflow.com/questions/tagged/java?sort=frequent&pageSize=15>stack overflow
-    <p> <a href = https://project-aw.herokuapp.com/logout> logout </p>

@@ -8,6 +8,7 @@ const mongo = require('./db')
 const routes = require('./routes/users');
 app.set('views', path.join(__dirname, 'views')); // path to the views folder
 app.set('view engine', 'pug');
+app.use("/visualization", express.static(path.join(__dirname, 'visualization')));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

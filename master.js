@@ -1,7 +1,7 @@
 var client = require('./db')
 const session = require('express-session');
   const register = (req, res) => {
-  res.render('register',{title: "Registration form"});
+  res.render('register',{title: "Registration form", message: "REGISTER"});
 }
 
 const registerp = (req, res) => {
@@ -9,14 +9,16 @@ const registerp = (req, res) => {
   let record = {
     email: req.body.email,
     username: req.body.username,
-    password:req.body.password
+    password:req.body.password,
+    age:req.body.age
+
   }
   db.collection('users').insertOne(record, (err, c) => console.log("saved to database"))
   res.redirect('http://google.com')
   }
 
   const login = (req, res) => {
-    res.render('login',{title: "LOGIN"});
+    res.render('login',{title: "LOGIN", message:"LOGIN"});
   }
 
   const auth = (req, res) => {
@@ -46,7 +48,7 @@ const registerp = (req, res) => {
   const profile = (req, res) => {
     //var db = client.getDb()
 
-    res.render('profile',{title: "PROFILE",username: req.session.username});
+    res.render('profile',{title: "PROFILE",message: "PROFILE", username: req.session.username});
   }
 
   const temp = (req, res) => {
@@ -91,6 +93,7 @@ const registerp = (req, res) => {
 
     res.send(record)
   }
+
   const logout = (req, res) => {
     req.session.destroy(function(err) {
   if(err) {

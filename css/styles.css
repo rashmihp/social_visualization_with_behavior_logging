@@ -1,16 +1,11 @@
 body {
   padding: 40px 10px;
-  background-color: #eee;
-  background-image: url("https://www.pexels.com/photo/nature-flowers-plant-flower-87840/")
-  height: 100%;
+  background-color: linear-gradient(45deg, rgba(29, 150, 200, 0.8), rgba(29, 200, 205, 0.8));
+  background-image: url(flower1.jpg);
   font-family: Poppins-Regular, sans-serif;
 }
 a {
 	font-family: Poppins-Regular;
-	font-size: 14px;
-	line-height: 1.7;
-	color: #666666;
-	margin: 0px;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -27,16 +22,16 @@ a:hover {
 }
 
 /*---------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
-	margin: 0px;
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  margin-top: 10%;
 }
 
 p {
 	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
-	margin: 0px;
+	color: #000;
 }
 
 ul, li {
@@ -100,7 +95,13 @@ iframe {
 	border: none !important;
 }
 
+.listing-reg {
+
+  text-align: center;
+  margin: 0 0 2rem;
+}
 .listing-reg h1 {
+  font: #f7f7f7
   text-align: center;
   margin: 0 0 2rem;
 }

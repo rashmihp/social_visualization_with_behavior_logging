@@ -70,6 +70,16 @@ const registerp = (req, res) => {
 
     res.send(question) //dont have to send everytime...i had used send just to show that server is working // just a confirmation if that function is working and waht it is sending..okok...
   }
+  const comment = (req, res) => {
+    let db = client.getDb()
+
+    let question = {}
+    question.ctime = req.params.x
+
+    db.collection('user-clicks').insertOne(question, (err, c) => console.log("saved ctime to db"))
+
+    res.send(question) //dont have to send everytime...i had used send just to show that server is working // just a confirmation if that function is working and waht it is sending..okok...
+  }
   const scroll = (req, res) => {
     let db = client.getDb()
 
@@ -92,5 +102,6 @@ module.exports = {
   profile:profile,
   temp:temp,
   ask_question:ask_question,
+  comment:comment;
   scroll:scroll
 }

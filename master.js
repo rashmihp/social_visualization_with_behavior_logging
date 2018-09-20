@@ -14,7 +14,7 @@ const registerp = (req, res) => {
 
   }
   db.collection('users').insertOne(record, (err, c) => console.log("saved to database"))
-  res.redirect('http://google.com')
+  res.redirect('https://project-aw.herokuapp.com/profile')
   }
 
   const login = (req, res) => {

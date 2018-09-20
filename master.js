@@ -1,6 +1,5 @@
 var client = require('./db')
 const session = require('express-session');
-var sess
   const register = (req, res) => {
   res.render('register',{title: "Registration form"});
 }
@@ -29,7 +28,6 @@ const registerp = (req, res) => {
     else {
       console.log(items)
       req.session.username = items[0].username
-      sess.username = req.session.username
       if(req.session.username){console.log(req.session)} else console.log('not found')
       res.redirect('/profile')}
     })
@@ -54,7 +52,7 @@ const registerp = (req, res) => {
     let db = client.getDb()
 
     let record = {}
-    record.username = sess.username
+    record.username = req.session.username
     record.x_clicks = req.params.x
     record.y_clicks = req.params.y
 

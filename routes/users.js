@@ -8,11 +8,10 @@ router.get('/register', master.register)
 router.post('/register', master.registerp)
 router.get('/', master.login)
 router.post('/auth', master.auth)
-router.get('/profile', master.restrict, master.profile)
-router.get('/temp/:x/:y', master.restrict, master.temp)
+router.get('/profile', master.profile)
+router.get('/temp/:x/:y', master.temp)
 router.get('/ask_question/:x', master.ask_question) // u have not added middlewear....
 router.get('/scroll/:x/:y/:z', master.scroll)
-
 /*router.get('/rashmi', middlewear1, middlewear2, finalfunction)
 
 function middlewear1(req, res, next) {

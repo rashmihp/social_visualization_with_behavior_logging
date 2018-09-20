@@ -32,7 +32,7 @@ const registerp = (req, res) => {
       res.redirect('/profile')}
     })
   }
-  const restrict = (req, res, next) => {
+  /*const restrict = (req, res, next) => {
     console.log('inside restrict' + JSON.stringify(req.session))
     if(req.session.username){ // label them properly else ul only get confused
       next();
@@ -42,7 +42,7 @@ const registerp = (req, res) => {
         res.redirect('/')
 
       }
-  }
+  }*/
   const profile = (req, res) => {
     //var db = client.getDb()
 
@@ -91,7 +91,7 @@ module.exports = {
   registerp:registerp,
   login:login,
   auth:auth,
-  restrict:restrict,
+  //restrict:restrict,
   profile:profile,
   temp:temp,
   ask_question:ask_question,

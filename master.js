@@ -27,12 +27,13 @@ const registerp = (req, res) => {
     if(err) throw err // instead of scroll
     else {
       console.log(items)
-      req.session.username = items[0].username
-      if(req.session.username){console.log("if present"+ JSON.stringify(req.session))} else console.log('not found') //correct?
+      req.session.username = items[0].username // yes... the sesssion.username is not passed after profile to any othr function
+      if(req.session.username){console.log("if present"+ JSON.stringify(req.session))} else console.log('not found') //correct? redeploy
       res.redirect('/profile')}
     })
   }
   const restrict = (req, res, next) => {
+    console.log('inside restrict' + JSON.stringify(req.session))
     if(req.session.username){ // label them properly else ul only get confused
       next();
       }

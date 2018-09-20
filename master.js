@@ -22,18 +22,18 @@ const registerp = (req, res) => {
   const auth = (req, res) => {
     var db = client.getDb()
     //sess = req.session
-    console.log(req.session) //here ur not checking if the entered password is same as what is in the database...ur just checking email
+    console.log("session"+req.session) //here ur not checking if the entered password is same as what is in the database...ur just checking email
     db.collection('users').find({email:req.body.email}).toArray(function(err, items){
     if(err) throw err // instead of scroll
     else {
       console.log(items)
       req.session.username = items[0].username
-      if(req.session.username){console.log(req.session)} else console.log('not found')
+      if(req.session.username){console.log("if present"+req.session)} else console.log('not found')
       res.redirect('/profile')}
     })
   }
   const restrict = (req, res, next) => {
-    if(req.session.username){
+    if(req.session.username){ // label them properly else ul only get confused
       next();
       }
       else {

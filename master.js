@@ -22,13 +22,13 @@ const registerp = (req, res) => {
   const auth = (req, res) => {
     var db = client.getDb()
     //sess = req.session
-    console.log("session"+req.session) //here ur not checking if the entered password is same as what is in the database...ur just checking email
+    console.log("session"+JSON.stringify(req.session)) //here ur not checking if the entered password is same as what is in the database...ur just checking email
     db.collection('users').find({email:req.body.email}).toArray(function(err, items){
     if(err) throw err // instead of scroll
     else {
       console.log(items)
       req.session.username = items[0].username
-      if(req.session.username){console.log("if present"+req.session)} else console.log('not found')
+      if(req.session.username){console.log("if present"+ JSON.stringify(req.session))} else console.log('not found') //correct?
       res.redirect('/profile')}
     })
   }

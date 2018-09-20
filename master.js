@@ -91,6 +91,14 @@ const registerp = (req, res) => {
 
     res.send(record)
   }
+  const logout = (req, res) => {
+    req.session.destroy(function(err) {
+  if(err) {
+    console.log(err);
+  } else {
+    res.redirect('/');
+  }
+  }
 
 
 module.exports = {
@@ -103,5 +111,6 @@ module.exports = {
   temp:temp,
   ask_question:ask_question,
   comment:comment,
-  scroll:scroll
+  scroll:scroll,
+  logout:logout
 }

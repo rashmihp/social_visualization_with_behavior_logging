@@ -63,7 +63,7 @@ const registerp = (req, res) => {
   const ask_question = (req, res) => {
     let db = client.getDb()
 
-    let question = {
+    let question = {}
     question.qtime = req.params.x
 
     db.collection('user-clicks').insertOne(question, (err, c) => console.log("saved qtime to db"))

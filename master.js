@@ -32,7 +32,7 @@ const registerp = (req, res) => {
       res.redirect('/profile')}
     })
   }
-  /*const restrict = (req, res, next) => {
+  const restrict = (req, res, next) => {
     console.log('inside restrict' + JSON.stringify(req.session))
     if(req.session.username){ // label them properly else ul only get confused
       next();
@@ -42,7 +42,7 @@ const registerp = (req, res) => {
         res.redirect('/')
 
       }
-  }*/
+  }
   const profile = (req, res) => {
     //var db = client.getDb()
 
@@ -53,7 +53,6 @@ const registerp = (req, res) => {
     let db = client.getDb()
 
     let record = {}
-    record.username = req.session.username
     record.x_clicks = req.params.x
     record.y_clicks = req.params.y
 
@@ -64,8 +63,7 @@ const registerp = (req, res) => {
   const ask_question = (req, res) => {
     let db = client.getDb()
 
-    let question = {}
-    question.username = req.session.username
+    let question = {
     question.qtime = req.params.x
 
     db.collection('user-clicks').insertOne(question, (err, c) => console.log("saved qtime to db"))
@@ -76,7 +74,6 @@ const registerp = (req, res) => {
     let db = client.getDb()
 
     let record = {}
-    record.username = req.session.username
     record.x_scroll = req.params.x
     record.y_scroll = req.params.y
     record.time_scroll = req.params.z // y same in both these lines? by mistake
@@ -91,7 +88,7 @@ module.exports = {
   registerp:registerp,
   login:login,
   auth:auth,
-  //restrict:restrict,
+  restrict:restrict,
   profile:profile,
   temp:temp,
   ask_question:ask_question,

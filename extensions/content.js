@@ -76,7 +76,7 @@ classname[0].addEventListener("wheel", myFunction, false);
       let x = $(document).scrollTop()
       let y = $(document).scrollLeft()
       let z = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
-      console.log('scroll fired' + x) //try now...shrink the window size..height of what? browser
+      console.log('scroll fired ' + x) //try now...shrink the window size..height of what? browser
       let url = "https://project-aw.herokuapp.com/scroll/" + x + "/" + y + "/" + z
       $.ajax({
         type: "GET",

@@ -4,6 +4,7 @@ INSTRUCTIONS TO OPEN THE PROJECT:
  open https://project-aw.herokuapp.com/
 
 2. login using aaa, bbb, ccc with password: 123
+	login through email aaa@123.com and password 123 etc
 
 3. It opens a profile page where the user can freely link to stackoverflow page.
 
